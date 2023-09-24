@@ -649,17 +649,23 @@ export default defineComponent({
     window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
-    handleScroll (e) {
-      const scrollHeight = Math.max(
-              document.body.scrollHeight, document.documentElement.scrollHeight,
-              document.body.offsetHeight, document.documentElement.offsetHeight,
-              document.body.clientHeight, document.documentElement.clientHeight
-      );
-      // const aboutSection = this.$refs.about
-      // const experienceSection = this.$refs.experience
+    handleScroll () {
+      const aboutSection = this.$refs.about
+      const experienceSection = this.$refs.experience
       const projectsSection = this.$refs.projects
-      console.log('e', e)
-      console.log(scrollHeight, projectsSection.offsetTop, window.clientHeight)
+      let scrollY = window.scrollY;
+
+      [aboutSection, experienceSection, projectsSection].forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 50;
+
+        if (
+                scrollY > sectionTop &&
+                scrollY <= sectionTop + sectionHeight
+        ){
+          this.activeArea = current.id
+        }
+      });
     }
   }
 })
