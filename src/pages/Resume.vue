@@ -20,9 +20,11 @@
                 <a class="group flex items-center py-3 active" href="#about">
                   <span
                     class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                    :class="{ 'w-16 bg-slate-200': activeArea === 'about', 'w-8 bg-slate-600': activeArea !== 'about' }"
                   ></span>
                   <span
-                    class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                    class="nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                    :class="{ 'text-slate-200': activeArea === 'about', 'text-slate-500': activeArea !== 'about' }"
                     >About</span
                   >
                 </a>
@@ -30,10 +32,12 @@
               <li>
                 <a class="group flex items-center py-3 active" href="#experience">
                   <span
-                    class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                    class="nav-indicator mr-4 h-px transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                    :class="{ 'w-16 bg-slate-200': activeArea === 'experience', 'w-8 bg-slate-600': activeArea !== 'experience' }"
                   ></span>
                   <span
-                    class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                    class="nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                    :class="{ 'text-slate-200': activeArea === 'experience', 'text-slate-500': activeArea !== 'experience' }"
                     >Experience</span
                   >
                 </a>
@@ -41,10 +45,12 @@
               <li>
                 <a class="group flex items-center py-3 active" href="#projects">
                   <span
-                    class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                    class="nav-indicator mr-4 h-px transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"
+                    :class="{ 'w-16 bg-slate-200': activeArea === 'projects', 'w-8 bg-slate-600': activeArea !== 'projects' }"
                   ></span>
                   <span
-                    class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                    class="nav-text text-xs font-bold uppercase tracking-widest group-hover:text-slate-200 group-focus-visible:text-slate-200"
+                    :class="{ 'text-slate-200': activeArea === 'projects', 'text-slate-500': activeArea !== 'projects' }"
                     >Projects</span
                   >
                 </a>
@@ -121,6 +127,7 @@
       <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
         <section
           id="about"
+          ref="about"
           class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           aria-label="About me"
         >
@@ -149,7 +156,7 @@
                 rel="noreferrer"
                 class="font-medium text-slate-200 hover:text-teal-300 focus-visible:text-teal-300"
                 >Ukrainian fintech product</a
-              >
+              >.
             </p>
             <p class="mb-4">
               Currently I'm working at
@@ -170,6 +177,7 @@
         </section>
         <section
           id="experience"
+          ref="experience"
           class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
           aria-label="Work experience"
         >
@@ -473,7 +481,7 @@
             </div>
           </div>
         </section>
-        <section id="projects" class="scroll-mt-16 lg:scroll-mt-24">
+        <section id="projects" ref="projects" class="scroll-mt-16 lg:scroll-mt-24">
           <div>
             <ul class="group/list">
               <li class="mb-12">
@@ -516,8 +524,8 @@
                     width="200"
                     height="48"
                     decoding="async"
-                    src="@/assets/images/meetups-project-cover.png"
-                    alt="meetups-project-cover"
+                    src="@/assets/images/meetups.png"
+                    alt="meetups-cover"
                   />
                 </div>
               </li>
@@ -559,8 +567,51 @@
                     width="200"
                     height="48"
                     decoding="async"
-                    src="@/assets/images/meetups-project-cover.png"
+                    src="@/assets/images/cryptonomicon.png"
                     alt="meetups-project-cover"
+                  />
+                </div>
+              </li>
+              <li class="mb-12">
+                <div
+                  class="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
+                >
+                  <div
+                    class="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-slate-800/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"
+                  ></div>
+                  <div class="z-10 sm:order-2 sm:col-span-6">
+                    <h3>
+                      <a
+                        class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
+                        href="https://kanban-board123.netlify.app/"
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label="Kanban board"
+                      >
+                        <span
+                          class="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block"
+                        ></span>
+                        <span>
+                          Kanban board
+                          <component
+                            :is="arrowUpRightIcon"
+                            class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
+                          />
+                        </span>
+                      </a>
+                    </h3>
+                    <p class="mt-2 text-sm leading-normal">
+                      Kanban board - simple scrum board to plan sprints with your team!
+                    </p>
+                  </div>
+                  <img
+                    class="rounded border-2 border-slate-200/10 transition group-hover:border-slate-200/30 sm:order-1 sm:col-span-2 sm:translate-y-1 sm:max-h-18"
+                    loading="lazy"
+                    width="200"
+                    height="48"
+                    decoding="async"
+                    src="@/assets/images/kanban-board.png"
+                    alt="kanban-project-cover"
                   />
                 </div>
               </li>
@@ -578,12 +629,37 @@ import { ArrowUpRightIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
 
 export default defineComponent({
   name: 'AppResume',
+  data () {
+    return {
+      activeArea: 'about'
+    }
+  },
   computed: {
     arrowUpRightIcon() {
       return ArrowUpRightIcon
     },
     arrowRightIcon() {
       return ArrowRightIcon
+    }
+  },
+  mounted () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  unmounted () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll (e) {
+      const scrollHeight = Math.max(
+              document.body.scrollHeight, document.documentElement.scrollHeight,
+              document.body.offsetHeight, document.documentElement.offsetHeight,
+              document.body.clientHeight, document.documentElement.clientHeight
+      );
+      // const aboutSection = this.$refs.about
+      // const experienceSection = this.$refs.experience
+      const projectsSection = this.$refs.projects
+      console.log('e', e)
+      console.log(scrollHeight, projectsSection.offsetTop, window.clientHeight)
     }
   }
 })
