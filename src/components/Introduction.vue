@@ -1,0 +1,40 @@
+<template>
+  <header class="w-1/2 sticky top-0 max-h-screen flex flex-col justify-between py-24">
+    <div>
+      <h1 class="text-4xl font-bold text-slate-200 tracking-tight sm:text-5xl">
+        Dmytro Voloshko
+      </h1>
+      <h2 class="mt-3 text-xl font-medium tracking-tight text-slate-200 sm:text-xl">
+        Frontend Developer at Checkbox
+      </h2>
+      <p class="mt-4 max-w-xs leading-normal">
+        Frontend enthusiast, constantly growing, delivering great UI experience.
+      </p>
+      <navigation :active="active"/>
+    </div>
+    <social/>
+  </header>
+</template>
+
+<script>
+import { defineComponent } from 'vue'
+import Navigation from '@/components/Navigation.vue';
+import Social from '@/components/Social.vue'
+
+export default defineComponent({
+  name: 'AppIntroduction',
+    props: {
+      active: {
+        type: String,
+        default: ''
+      }
+    },
+  components: {
+    Navigation,
+    Social
+  }
+})
+</script>
+
+<style lang="scss">
+</style>

@@ -5,6 +5,7 @@ module.exports = {
   root: true,
   'extends': [
     'plugin:vue/vue3-essential',
+    "plugin:vue/vue3-strongly-recommended",
     'eslint:recommended',
     '@vue/eslint-config-prettier/skip-formatting'
   ],
@@ -13,5 +14,8 @@ module.exports = {
   },
   env: {
     node: true
+  },
+  rules: {
+    quotes: [2, "single", { "avoidEscape": true }]
   }
 }
