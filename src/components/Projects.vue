@@ -1,5 +1,6 @@
 <template>
     <section id="projects" ref="projects" class="scroll-mt-16 lg:scroll-mt-24">
+        <h3 class="block lg:hidden font-semibold text-2xl text-slate-200 mb-3">Projects</h3>
         <div>
             <ul class="group/list">
                 <li v-for="(project, idx) in projects" :key="idx" class="mb-12">

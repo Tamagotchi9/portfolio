@@ -15,7 +15,7 @@
             <h3 class="font-medium leading-snug text-slate-200">
                 <a
                     class="inline-flex items-baseline font-medium leading-tight text-slate-200 hover:text-teal-300 focus-visible:text-teal-300 group/link text-base"
-                    href="https://checkbox.ua/"
+                    :href="item.link"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="FrontEnd developer at Checkbox"
@@ -26,7 +26,7 @@
                     <span>
                         {{ item.position }} -
                         <span class="inline-block">
-                            Checkbox
+                            {{ item.companyName }}
                             <component
                                 :is="arrowUpRightIcon"
                                 class="inline-block h-4 w-4 shrink-0 transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none ml-1 translate-y-px"
@@ -36,7 +36,7 @@
                 </a>
             </h3>
             <p class="mt-2 text-sm leading-normal">
-                {{ item.achievements }}
+                {{ item.description }}
             </p>
             <ul class="mt-2 flex flex-wrap" aria-label="Technologies used">
                 <li v-for="(tech,idx) in item.technologies" :key="idx" class="mr-1.5 mt-2">

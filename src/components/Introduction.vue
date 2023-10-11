@@ -1,5 +1,5 @@
 <template>
-  <header class="w-1/2 sticky top-0 max-h-screen flex flex-col justify-between py-24">
+  <header class="lg:w-1/2 static lg:sticky lg:top-0 lg:max-h-screen flex flex-col justify-between lg:py-24">
     <div>
       <h1 class="text-4xl font-bold text-slate-200 tracking-tight sm:text-5xl">
         Dmytro Voloshko

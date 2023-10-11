@@ -5,6 +5,7 @@
             class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
             aria-label="About me"
     >
+        <h3 class="block lg:hidden font-semibold text-2xl text-slate-200 mb-3">About</h3>
         <div>
             <p class="mb-4">
                 Back in 2017, in the last term of school, I decided to start picking up web

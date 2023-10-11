@@ -2,9 +2,9 @@
   <div
     class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0"
   >
-    <div class="flex justify-between gap-4">
+    <div class="flex flex-col lg:flex-row justify-between gap-4">
       <Introduction :active="activeArea"/>
-      <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+      <main id="content" class="pt-16 lg:w-1/2 lg:py-24">
         <about-me ref="aboutSection"/>
         <experience ref="experienceSection"/>
         <projects ref="projectsSection"/>
